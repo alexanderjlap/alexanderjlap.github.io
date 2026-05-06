@@ -1,0 +1,25 @@
+{
+  "name": "alexanderjlap-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderjlap/alexanderjlap-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexanderjlap/alexanderjlap-portfolio/issues"
+  },
+  "homepage": "https://github.com/alexanderjlap/alexanderjlap-portfolio#readme"
+}
