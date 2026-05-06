@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/alexanderjlap/alexanderjlap-portfolio/issues"
   },
-  "homepage": "https://github.com/alexanderjlap/alexanderjlap-portfolio#readme"
+  "homepage": "https://github.com/alexanderjlap/alexanderjlap-portfolio#readme",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "gh-pages": "^6.3.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "vite": "^8.0.10"
+  }
 }
