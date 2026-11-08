@@ -4,6 +4,8 @@ import panAsianImg from './assets/pan-asian.jpg'
 import saseImg from './assets/sase-app.jpg'
 import easeImg from './assets/ease-wellness.png'
 import brighamImg from './assets/brigham-kiosk.jpg'
+import trackingSheetImg from './assets/tracking-sheet.png'
+import telemetryImg from './assets/script-automation.jpg'
 
 function App() {
   const projects = [
@@ -11,13 +13,19 @@ function App() {
       title: 'Tracking Sheet App',
       tags: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'AWS'],
       desc: '📋 Academic degree audit platform for 1,000+ undergraduate student advising workflows',
-      link: 'https://github.com/alexanderjlap',
+      image: trackingSheetImg,
+      imageFit: 'object-cover object-left-top',
+      imageBg: 'bg-[#18181b]',
+      link: 'https://github.com/alexanderjlap/tracking-sheet-project-main',
     },
     {
       title: 'Script Automation & ML Telemetry',
       tags: ['Python', 'Win32', 'pywinauto', 'HMM', 'Telemetry'],
       desc: '🤖 Real-time OS telemetry pipeline and ML failure detection with 92.75% precision',
-      link: 'https://github.com/alexanderjlap',
+      image: telemetryImg,
+      imageFit: 'object-contain',
+      imageBg: 'bg-white',
+      link: 'https://digital.wpi.edu/concern/student_works/vx021k68b?locale=en',
     },
     {
       title: "Brigham and Women's Hospital Kiosk",
@@ -48,6 +56,7 @@ function App() {
     },
     {
       title: 'Pan Asian Festival App',
+      award: 'Winner: Best Community Hack - Goat Hack 2024',
       tags: ['React', 'Flask', 'Firebase', 'Tailwind'],
       desc: '🍜 Real-time queueing and line-holding application cutting attendee wait times by 50%',
       image: panAsianImg,
@@ -195,7 +204,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0c] dark:text-zinc-100 selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-blue-300 transition-colors duration-200">
+    <div className="min-h-screen bg-white text-zinc-900 dark:bg-[#16161a] dark:text-zinc-100 selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-blue-300 transition-colors duration-200">
       {/* Light / Dark Mode Toggle Button */}
       <button
         type="button"
@@ -314,7 +323,7 @@ function App() {
                 className="relative group"
               >
                 {/* Milestone dot directly on top of the continuous line */}
-                <div className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-500 ring-4 ring-white dark:ring-[#0a0a0c]" />
+                <div className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-500 ring-4 ring-white dark:ring-[#16161a]" />
 
                 {/* Content */}
                 <div>
@@ -389,6 +398,13 @@ function App() {
                           </span>
                         )}
                       </h3>
+
+                      {proj.award && (
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                          <span>🏆</span>
+                          <span>{proj.award}</span>
+                        </div>
+                      )}
 
                       <p className="text-sm sm:text-base text-zinc-800 dark:text-zinc-100 font-medium leading-relaxed pt-0.5">
                         {proj.desc}

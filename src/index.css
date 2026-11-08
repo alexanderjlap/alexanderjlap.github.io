@@ -7,6 +7,6 @@ html {
 }
 
 body {
-  @apply bg-white text-zinc-900 dark:bg-[#0a0a0c] dark:text-zinc-100 antialiased selection:bg-blue-500/20 selection:text-blue-500 dark:selection:text-blue-300;
+  @apply bg-white text-zinc-900 dark:bg-[#16161a] dark:text-zinc-100 antialiased selection:bg-blue-500/20 selection:text-blue-500 dark:selection:text-blue-300;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
