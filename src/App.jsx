@@ -2,6 +2,7 @@ import React from 'react'
 import avatarImg from './assets/avatar.jpg'
 import panAsianImg from './assets/pan-asian.jpg'
 import saseImg from './assets/sase-app.jpg'
+import easeImg from './assets/ease-wellness.png'
 
 function App() {
   const projects = [
@@ -27,7 +28,10 @@ function App() {
       title: 'EASE Wellness Planner',
       tags: ['React', 'Flask', 'PostgreSQL', 'PyTorch', 'Scikit-learn'],
       desc: '⏰ Gamified task management web app with Pomodoro timers and ML productivity analysis',
-      link: 'https://github.com/alexanderjlap',
+      image: easeImg,
+      imageFit: 'object-cover object-top',
+      imageBg: 'bg-white dark:bg-zinc-950',
+      link: 'https://devpost.com/software/ease-4cjkus',
     },
     {
       title: 'SASE National Convention App',
