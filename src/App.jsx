@@ -1,598 +1,415 @@
 import React from 'react'
-import { motion } from 'framer-motion'
+import avatarImg from './assets/avatar.jpg'
+import panAsianImg from './assets/pan-asian.jpg'
+import saseImg from './assets/sase-app.jpg'
 
 function App() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8 },
-    },
-  }
-
   const projects = [
     {
       title: 'Tracking Sheet App',
-      org: 'WPI',
-      date: 'Jun 2026 - Aug 2026',
-      desc: [
-        'Architected Tracking Sheet App (React, TypeScript, TailwindCSS, AWS) for 1,000+ student advising workflows',
-        'Modeled strict domain logic via entity class diagrams, engineered a PostgreSQL and Node.js/Express backend, and prototyped GUIs in Figma for automated .xlsx data ingestion',
-      ]
+      tags: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'AWS'],
+      desc: '📋 Academic degree audit platform for 1,000+ undergraduate student advising workflows',
+      link: 'https://github.com/alexanderjlap',
     },
     {
       title: 'Script Automation & ML Telemetry',
-      org: 'WPI & Microsoft Intune',
-      date: 'Aug 2025 - Mar 2026',
-      desc: [
-        'Constructed a real-time Python telemetry pipeline (Win32/pywinauto) to map raw UI events into structured semantic workflow graphs, achieving an ultra-low system footprint of just 0.57% average CPU',
-        'Reduced IT escalations via HMMs & heuristics, achieving 92.75% precision & 90.09% F1 score',
-      ]
+      tags: ['Python', 'Win32', 'pywinauto', 'HMM', 'Telemetry'],
+      desc: '🤖 Real-time OS telemetry pipeline and ML failure detection with 92.75% precision',
+      link: 'https://github.com/alexanderjlap',
     },
     {
-      title: "Brigham and Women's Hospital Kiosk App",
-      org: 'WPI',
-      date: 'Mar 2024 - May 2024',
-      desc: [
-        'Leveraged Agile principles on an 11-person team to develop a medical equipment tracking web application (TypeScript, Node.js), implementing 8 key features including pathfinding, a map editor, and Auth0 login',
-        'Designed and deployed PostgreSQL schema across AWS EC2/RDS with Docker, reducing server provisioning time by 40%'
-      ]
+      title: "Brigham and Women's Hospital Kiosk",
+      tags: ['TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'AWS', 'Auth0'],
+      desc: '🏥 Full-stack medical equipment tracking web app with A* pathfinding and AWS deployment',
+      link: 'https://github.com/alexanderjlap',
     },
     {
-      title: 'EASE Wellness Planner App',
-      date: 'Oct 2024',
-      desc: [
-        'Designed a task management app to gamify the completion of tasks using a leveling system to encourage productivity',
-        'Added 15 minute Pomodoro-style break reminders and prioritized tasks by weight using JavaScript',
-        'Built a deep neural network model with PyTorch, NumPy, Pandas, and Scikit-learn to assess a 1000+ labeled entries'
-      ]
+      title: 'EASE Wellness Planner',
+      tags: ['React', 'Flask', 'PostgreSQL', 'PyTorch', 'Scikit-learn'],
+      desc: '⏰ Gamified task management web app with Pomodoro timers and ML productivity analysis',
+      link: 'https://github.com/alexanderjlap',
     },
     {
       title: 'SASE National Convention App',
-      date: 'May 2024 - Oct 2024',
-      desc: [
-        'Partnered with vfairs to launch an app for 3,000+ attendees with a searchable agenda and engagement tools',
-        'Integrated QR codes to streamline session check-ins, track attendance, and facilitate easy contact used in 40+ sessions',
-        'Built a reusable frontend architecture using HTML and CSS to streamline updates across 15+ event pages'
-      ]
+      tags: ['HTML', 'CSS', 'JavaScript', 'vfairs API', 'QR Integration'],
+      desc: '📱 Mobile event web app for 3,000+ convention attendees across 40+ technical sessions',
+      image: saseImg,
+      imageFit: 'object-cover object-top',
+      imageBg: 'bg-white dark:bg-zinc-950',
+      link: 'https://play.google.com/store/apps/details?id=com.sase.mobileApp&hl=en_US&pli=1',
     },
     {
       title: 'Pan Asian Festival App',
-      date: 'Oct 2024',
-      desc: [
-        'Produced a digital line-holding app using Tailwind CSS and Flask to decrease wait times for made-to-order food',
-        'Optimized database queries with Firebase for real-time order tracking and notifications to enhance user experience',
-        'Developed responsive design principles across web and mobile interfaces, providing usability and accessibility for users'
-      ]
+      tags: ['React', 'Flask', 'Firebase', 'Tailwind'],
+      desc: '🍜 Real-time queueing and line-holding application cutting attendee wait times by 50%',
+      image: panAsianImg,
+      imageFit: 'object-contain',
+      imageBg: 'bg-[#f0dec7]',
+      link: 'https://devpost.com/software/pan-asian-festival-app',
     },
   ]
 
   const experience = [
     {
+      year: '2026',
       title: 'Research Assistant',
-      company: 'Worcester Polytechnic Institute & Oak Ridge National Laboratory · Remote',
-      period: 'Jun 2026 - Aug 2026',
-      highlights: [
-        'Configure Linux server environments and operate QuickWave software via SSH/SCP to manage project files and execute 3D electromagnetic simulations for microwave plasma modeling',
-        'Modify 3 core cold plasma parameters (conductivity, collision frequency, plasma frequency) in raw data',
-        'Extract data from 80,000+ iteration simulations to visualize S11(f) reflection curves across a 2–3 GHz frequency band'
-      ]
+      company: 'WPI & Oak Ridge National Laboratory',
+      period: 'Jun – Aug 2026',
+      desc: '🔬 3D microwave plasma modeling and QuickWave simulations',
+      category: 'software-research',
     },
     {
+      year: '2025',
       title: 'Software Engineer',
-      company: 'HitchKick · Remote',
-      period: 'May 2025 - Feb 2026',
-      highlights: [
-        'Refined a modular PERN-stack platform for registration, scheduling, and webcasts, prioritizing 15+ feature requests to ensure successful deployment across 50+ dance studios',
-        'Created 12+ scalable APIs and frontend features for real-time updates, secure authentication, and payment workflows',
-        'Optimized frontend and UI/UX, reducing scheduling latency by 25% and boosting retention'
-      ]
+      company: 'Hitchkick',
+      period: 'May 2025 – Feb 2026',
+      desc: '⚡ Full-stack PERN platform & APIs deployed across 50+ dance studios',
+      category: 'software-research',
     },
     {
+      year: '2025',
       title: 'Software Engineer Intern',
-      company: 'Hong Kong Standards Testing Centre · Tai Po, HK',
-      period: 'Jan 2025 - Mar 2025',
-      highlights: [
-        'Overhauled a multilingual project management app and partnered globally to align software, ensuring 100% usability across 4 international markets and amplifying productivity by 40%',
-        'Engineered 6 project tracking tools (CPM, EVM, Gantt, Kanban, etc.) to enhance scheduling and data visualization',
-        'Built data visualizations using PostgreSQL, FastAPI, React, Vite, Chart.js, and Cytoscape, cutting processing time by 20%'
-      ]
+      company: 'Hong Kong Standards Testing Centre (STC)',
+      period: 'Jan – Mar 2025',
+      desc: '🌐 Global multilingual project management app & data visualizations',
+      category: 'software-research',
     },
     {
+      year: '2024',
       title: 'Coding Instructor',
       company: 'iD Tech',
-      period: 'Jun 2024 - Aug 2024',
-      highlights: [
-        'Developed and taught Python and Java curricula to 23 students',
-        'Coached students on debugging, software architecture, and collaborative coding practices',
-        'Enhanced course materials for interactive learning and student engagement'
-      ]
+      period: 'Jun – Aug 2024',
+      desc: '💻 Python and Java programming curricula instruction for 23 students',
+      category: 'education',
     },
     {
+      year: '2023',
       title: 'Camp Counselor',
       company: 'YMCA',
-      period: 'Jun 2023 - Aug 2023',
-      highlights: [
-        'Led daily activities for groups of 20+ campers, ensuring a safe and engaging experience',
-        'Collaborated with 15 counselors to support camp operations and conflict resolution'
-      ]
+      period: 'Jun – Aug 2023',
+      desc: '🤝 Youth group leadership and team conflict resolution',
+      category: 'education',
     },
     {
+      year: '2022',
       title: 'Information Systems Intern',
       company: 'Cooley Dickinson Hospital',
-      period: 'Jul 2022 - Aug 2022',
-      highlights: [
-        'Designed responsive navigation for hospital department website',
-        'Enabled 500+ patients to complete forms online each month',
-        'Trained 300+ staff on new phone systems and digital workflows'
-      ]
+      period: 'Jul – Aug 2022',
+      desc: '🏥 Hospital web portal navigation and digital clinical form workflows',
+      category: 'cyber',
     },
     {
+      year: '2022',
       title: 'Cybersecurity Intern',
       company: 'City of Northampton',
-      period: 'Apr 2022 - May 2022',
-      highlights: [
-        'Implemented cybersecurity policy updates and training presentations for 100+ employees',
-        'Contributed to incident reduction through stronger security controls'
-      ]
+      period: 'Apr – May 2022',
+      desc: '🛡️ Municipal security policy revamp and employee compliance training',
+      category: 'cyber',
+    },
+    {
+      year: '2022',
+      title: 'Advanced Cybersecurity Extern',
+      company: 'Work ED',
+      period: 'Feb 2022',
+      desc: '🔒 RangeForce cyber drills, Log4j research, and Mirai Botnet case study',
+      category: 'cyber',
+    },
+    {
+      year: '2021',
+      title: 'Information Technology Lead',
+      company: 'IT Innovation Pathways',
+      period: 'Jun – Sep 2021',
+      desc: '🖥️ School district Windows computer fleet management and tech support',
+      category: 'cyber',
+    },
+    {
+      year: '2021',
+      title: 'Information Technology Intern',
+      company: 'IT Innovation Pathways',
+      period: 'Feb – Jun 2021',
+      desc: '📹 Frontline IT troubleshooting and video hardware guides',
+      category: 'cyber',
+    },
+    {
+      year: '2020',
+      title: 'Data Analysis Intern',
+      company: 'DESCO (Medical Equipment Solutions)',
+      period: 'Aug – Nov 2020',
+      desc: '📊 Medical sterilizer telemetry analysis and executive briefings',
+      category: 'software-research',
+    },
+    {
+      year: '2020',
+      title: 'Cybersecurity Intern',
+      company: 'City of Northampton',
+      period: 'Jun – Jul 2020',
+      desc: '🕵️ Darktrace AI network threat detection with municipal CIO',
+      category: 'cyber',
+    },
+    {
+      year: '2019',
+      title: 'Cybersecurity Extern',
+      company: 'Work ED',
+      period: 'Aug 2019',
+      desc: '🔐 System hardening, cryptography, and critical infrastructure defense',
+      category: 'cyber',
+    },
+    {
+      year: '2019',
+      title: 'Information Technology Support Intern',
+      company: 'IT Innovation Pathways',
+      period: 'Jun – Jul 2019',
+      desc: '🛠️ Hardware disassembly, monitor repair, and OS disk imaging',
+      category: 'cyber',
     },
   ]
 
-  const leadership = [
-    {
-      title: 'National Convention | Project Lead - Digital Experience',
-      org: 'Society of Asian Scientists and Engineers (SASE) · Seattle, WA',
-      period: 'Apr 2026 - Present',
-      desc: [
-        'Orchestrate app UI/UX redesign, optimizing button layouts, and deploy leaderboards to boost engagement'
-      ]
-    },
-    {
-      title: 'National Convention | SASEhack Manager',
-      org: 'Society of Asian Scientists and Engineers (SASE) · Pittsburgh, PA',
-      period: 'Mar 2025 - Oct 2025',
-      desc: [
-        'Led 6-member SASEhack team, securing 261 participants (+17% Year-over-Year) across 46 universities',
-        'Managed 38 project submissions across 3 tracks, awarding $3,600 to 8 winning teams'
-      ]
-    },
-    {
-      title: 'National Convention FAQ & Mobile App Coordinator',
-      org: 'Society of Asian Scientists and Engineers (SASE)',
-      period: 'Mar 2024 - Nov 2024',
-      desc: 'Coordinated logistics for 3,000+ attendee convention and administered transportation for 1,200+ delegates.'
-    },
-    {
-      title: 'Sponsorship Liaison',
-      org: 'SASE Northeast Regional Conference',
-      period: 'Oct 2023 - Feb 2024',
-      desc: 'Secured partnerships with 10+ companies, resulting in a 177% increase in corporate sponsors.'
-    },
-    {
-      title: 'WPI SASE Secretary',
-      org: 'Society of Asian Scientists and Engineers (SASE)',
-      period: 'Dec 2022 - Dec 2023',
-      desc: 'Managed club communication, meetings, documentation, and event planning.'
-    },
-    {
-      title: 'Recruitment Leader',
-      org: 'Interfraternity Council',
-      period: 'Apr 2023 - Oct 2023',
-      desc: 'Organized new member outreach and supported recruitment operations.'
-    },
-    {
-      title: 'Pan Asian Chair',
-      org: 'Vietnamese Student Association',
-      period: 'Mar 2023 - Feb 2024',
-      desc: 'Coordinated events and communications for the campus Pan Asian community.'
-    },
-  ]
+  const [theme, setTheme] = React.useState(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('theme')
+      if (stored) return stored
+    }
+    return 'dark'
+  })
 
-  const achievements = [
-    'SASE Chevron Scholarship',
-    'James Z. Naurison Scholarship Fund',
-    'Broecker-Barnard Memorial Scholarship',
-    'Byron R. Lewis Academic Scholarship',
-  ]
+  React.useEffect(() => {
+    const root = document.documentElement
+    if (theme === 'dark') {
+      root.classList.add('dark')
+    } else {
+      root.classList.remove('dark')
+    }
+    localStorage.setItem('theme', theme)
+  }, [theme])
 
-  const coursework = [
-    'Cryptography & Data Security',
-    'Software Security Engineering',
-    'Operating Systems',
-    'Software Engineering',
-    'Machine Organization & Assembly Language',
-    'Database Systems',
-    'Artificial Intelligence',
-    'Algorithms',
-  ]
-
-  const skills = {
-    'Languages': [
-      'Python', 'Java', 'C', 'C++', 'JavaScript', 'TypeScript', 'R', 
-      'HTML', 'CSS', 'SQL', 'x86-64 Assembly', 'Bash'
-    ],
-    'Frameworks': [
-      'React.js', 'Next.js', 'Node.js', 'Express', 'Flask', 'FastAPI', 
-      'PrismaORM', 'Redux', 'Axios', 'Chart.js', 'Cytoscape', 
-      'hello-pangea/dnd', 'i18next', 'Bootstrap', 'Vite', 'Pipenv', 'Tailwind'
-    ],
-    'Technologies & Tools': [
-      'PostgreSQL', 'Firebase', 'Docker', 'Linux', 'JSON', 'NumPy', 
-      'Pandas', 'Scikit-learn', 'PyTorch', 'Darktrace', 'Postman', 'Figma'
-    ],
-    'Cloud & DevOps': [
-      'AWS', 'Git', 'Jira', 'Trello', 'Monday.com'
-    ]
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      {/* Animated background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <motion.div
-          animate={{ opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 right-20 w-72 h-72 bg-blue-500 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ opacity: [0.1, 0.15, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-20 left-20 w-72 h-72 bg-purple-500 rounded-full blur-3xl"
-        />
-      </div>
+    <div className="min-h-screen bg-white text-zinc-900 dark:bg-[#0a0a0c] dark:text-zinc-100 selection:bg-blue-500/20 selection:text-blue-600 dark:selection:text-blue-300 transition-colors duration-200">
+      {/* Light / Dark Mode Toggle Button */}
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        className="fixed top-5 right-5 sm:top-6 sm:right-8 z-50 p-2.5 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white shadow-sm hover:scale-105 active:scale-95 transition-all focus:outline-none cursor-pointer"
+      >
+        {theme === 'dark' ? (
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        ) : (
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        )}
+      </button>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 py-20">
-        {/* Header */}
-        <motion.header
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="mb-20 text-center"
-        >
-          <motion.div variants={itemVariants}>
-            <h1 className="text-6xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+      {/* Main Container */}
+      <main className="max-w-3xl mx-auto px-6 py-12 sm:py-20 space-y-20 sm:space-y-24">
+        
+        {/* Hero & Contact Section */}
+        <section id="contact" className="space-y-6 scroll-mt-20 flex flex-col items-center text-center">
+          <img
+            src={avatarImg}
+            alt="Alexander Lap Avatar"
+            className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-2 border-zinc-200 dark:border-zinc-800 shadow-xl"
+          />
+
+          <div className="space-y-4 flex flex-col items-center">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Alexander Lap
             </h1>
-          </motion.div>
-          <motion.p
-            variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-400 mb-2"
-          >
-            Full-Stack Developer & Software Engineer
-          </motion.p>
-          <motion.p
-            variants={itemVariants}
-            className="text-gray-500 mb-8"
-          >
-            Cybersecurity & Computer Science | Worcester Polytechnic Institute
-          </motion.p>
-          <motion.div
-            variants={itemVariants}
-            className="flex gap-4 justify-center flex-wrap mb-4"
-          >
-            <a href="mailto:alex.lap118@gmail.com" className="px-8 py-3 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-colors">
-              Get In Touch
-            </a>
-            <a href="https://linkedin.com/in/alexanderlap" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-blue-400 text-blue-400 hover:bg-blue-500/10 rounded-lg font-semibold transition-colors">
-              LinkedIn
-            </a>
-            <a href="https://github.com/alexanderjlap" target="_blank" rel="noopener noreferrer" className="px-8 py-3 border border-purple-400 text-purple-400 hover:bg-purple-500/10 rounded-lg font-semibold transition-colors">
-              GitHub
-            </a>
-          </motion.div>
-          <motion.p variants={itemVariants} className="text-sm text-gray-500">
-            (413) 270-2576 | alex.lap118@gmail.com | Northampton, MA | US Citizen
-          </motion.p>
-        </motion.header>
 
-        {/* About Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-20 p-8 border border-blue-500/20 rounded-2xl bg-blue-500/5 backdrop-blur-sm"
-        >
-          <h2 className="text-4xl font-bold mb-6">About</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-blue-300">Education</h3>
-              <p className="text-gray-300 mb-4">
-                <strong>Master of Science in Cybersecurity</strong><br/>
-                Worcester Polytechnic Institute · Worcester, MA | Dec 2026
-              </p>
-              <p className="text-gray-300">
-                <strong>Bachelor of Science in Computer Science</strong><br/>
-                Worcester Polytechnic Institute · Worcester, MA | May 2026
-              </p>
+            {/* Quick Action Contact Icon Buttons */}
+            <div className="flex flex-wrap justify-center items-center gap-3">
+              <a
+                href="mailto:alex.lap118@gmail.com"
+                aria-label="Email"
+                title="alex.lap118@gmail.com"
+                className="w-10 h-10 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-xs"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.75" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/in/alexanderlap"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+                className="w-10 h-10 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-xs"
+              >
+                <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.69 1.69 0 1 0 0-3.38 1.69 1.69 0 0 0 0 3.38m1.4 9.74V9.93H5.06v8.57h2.8z" />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/alexanderjlap"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                title="GitHub"
+                className="w-10 h-10 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-center text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700 transition-all shadow-xs"
+              >
+                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </a>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-3 text-blue-300">Relevant Coursework</h3>
-              <div className="flex flex-wrap gap-2">
-                {coursework.map((course, idx) => (
-                  <span
-                    key={idx}
-                    className="px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-sm text-gray-300"
-                  >
-                    {course}
-                  </span>
-                ))}
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="space-y-4 scroll-mt-20">
+          <h2 className="text-xs uppercase tracking-wider font-semibold text-zinc-500 dark:text-zinc-400">
+            Education
+          </h2>
+
+          <div className="space-y-3">
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between text-sm">
+              <div>
+                <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
+                <p className="text-zinc-600 dark:text-zinc-400 text-xs">M.S. in Cybersecurity · Dec 2026</p>
               </div>
+              <span className="text-xs text-zinc-500">Worcester, MA</span>
+            </div>
+            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between text-sm">
+              <div>
+                <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
+                <p className="text-zinc-600 dark:text-zinc-400 text-xs">B.S. in Computer Science · May 2026</p>
+              </div>
+              <span className="text-xs text-zinc-500">Worcester, MA</span>
             </div>
           </div>
-        </motion.section>
+        </section>
 
-        {/* Experience Section */}
-        <motion.section className="mb-20">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12"
-          >
-            Experience
-          </motion.h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            {experience.map((exp, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="p-6 rounded-xl border border-blue-500/20 bg-blue-500/5 backdrop-blur-sm hover:border-blue-500/40 transition-colors"
-              >
-                <div className="flex justify-between items-start mb-3">
-                  <div>
-                    <h3 className="text-2xl font-bold">{exp.title}</h3>
-                    <p className="text-blue-400">{exp.company}</p>
-                  </div>
-                  <span className="text-sm text-gray-400">{exp.period}</span>
-                </div>
-                <ul className="space-y-2">
-                  {exp.highlights.map((highlight, j) => (
-                    <li key={j} className="text-gray-300 flex items-start">
-                      <span className="text-blue-400 mr-3">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Projects Section */}
-        <motion.section className="mb-20">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12"
-          >
-            Featured Projects
-          </motion.h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
-          >
-            {projects.map((project, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                whileHover={{ y: -8 }}
-                className="group relative p-6 rounded-xl border border-blue-500/20 bg-blue-500/5 backdrop-blur-sm hover:border-blue-500/40 transition-colors"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity" />
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-1 gap-2">
-                    <h3 className="text-xl font-bold">{project.title}</h3>
-                    <span className="text-xs text-gray-400 whitespace-nowrap">{project.date}</span>
-                  </div>
-                  {project.org && (
-                    <p className="text-xs text-blue-400 mb-3">{project.org}</p>
-                  )}
-
-                  <div className="text-gray-400 mb-4 text-sm">
-                    {Array.isArray(project.desc) ? (
-                      <ul className="list-disc pl-4 space-y-2 marker:text-blue-400">
-                        {project.desc.map((item, j) => (
-                          <li key={j}>{item}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>{project.desc}</p>
-                    )}
-                  </div>
-
-                  {project.link && (
-                    <motion.a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ x: 4 }}
-                      className="inline-flex items-center text-blue-400 font-semibold hover:text-blue-300 transition-colors text-sm"
-                    >
-                      {project.linkLabel || 'View Project'} →
-                    </motion.a>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Skills Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl font-bold mb-12">Skills & Technologies</h2>
-          <motion.div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(skills).map(([category, skillList], idx) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-6 rounded-lg border border-blue-500/20 bg-blue-500/5"
-              >
-                <h3 className="text-lg font-semibold mb-4 text-blue-300">
-                  {category}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skillList.map((skill, i) => (
-                    <motion.span
-                      key={i}
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-sm text-gray-300 hover:text-blue-300 transition-colors"
-                    >
-                      {skill}
-                    </motion.span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Leadership Section */}
-        <motion.section className="mb-20">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12"
-          >
-            Leadership & Volunteer
-          </motion.h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-6"
-          >
-            {leadership.map((role, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="p-6 rounded-xl border border-purple-500/20 bg-purple-500/5 backdrop-blur-sm"
-              >
-                <h3 className="text-xl font-bold text-purple-300 mb-1">{role.title}</h3>
-                <p className="text-sm text-gray-400 mb-3">{role.org} · {role.period}</p>
-
-                <div className="text-gray-300 text-sm">
-                  {Array.isArray(role.desc) ? (
-                    <ul className="list-disc pl-4 space-y-1 marker:text-purple-400">
-                      {role.desc.map((item, j) => (
-                        <li key={j}>{item}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>{role.desc}</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Achievements Section */}
-        <motion.section className="mb-20">
-          <motion.h2
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl font-bold mb-12"
-          >
-            Achievements
-          </motion.h2>
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-4"
-          >
-            {achievements.map((achievement, i) => (
-              <motion.div
-                key={i}
-                variants={itemVariants}
-                className="p-4 rounded-lg bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-500/20 flex items-start"
-              >
-                <span className="text-yellow-400 mr-3 text-xl">★</span>
-                <span className="text-gray-300">{achievement}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.section>
-
-        {/* Contact Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center p-12 rounded-2xl border border-blue-500/20 bg-gradient-to-r from-blue-500/5 to-purple-500/5 backdrop-blur-sm"
-        >
-          <h2 className="text-4xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-gray-400 text-lg mb-8">
-            Open to collaborations, internships, and exciting projects
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <motion.a
-              href="mailto:alex.lap118@gmail.com"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg font-bold text-lg hover:shadow-lg hover:shadow-blue-500/50 transition-shadow"
-            >
-              Email Me
-            </motion.a>
-            <motion.a
-              href="https://linkedin.com/in/alexanderlap"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-4 border border-blue-400 text-blue-400 rounded-lg font-bold text-lg hover:bg-blue-500/10 transition-all"
-            >
-              LinkedIn
-            </motion.a>
-            <motion.a
-              href="https://github.com/alexanderjlap"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-4 border border-purple-400 text-purple-400 rounded-lg font-bold text-lg hover:bg-purple-500/10 transition-all"
-            >
-              GitHub
-            </motion.a>
+        {/* Timeline Section */}
+        <section id="timeline" className="scroll-mt-20">
+          <div className="mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white inline-block border-b-2 border-zinc-900 dark:border-white pb-0.5">
+              Timeline
+            </h2>
           </div>
-        </motion.section>
-      </div>
+
+          {/* Continuous Timeline List matching jerryhe.dev */}
+          <div className="relative pl-6 space-y-6">
+            {/* Unbroken, fully connected continuous vertical line */}
+            <div className="absolute left-[3.25px] top-2.5 bottom-2.5 w-[1.5px] bg-zinc-200 dark:bg-zinc-700/80 pointer-events-none" />
+
+            {experience.map((exp, i) => (
+              <div
+                key={`${exp.title}-${exp.company}-${i}`}
+                className="relative group"
+              >
+                {/* Milestone dot directly on top of the continuous line */}
+                <div className="absolute -left-6 top-1.5 w-2 h-2 rounded-full bg-zinc-400 dark:bg-zinc-500 ring-4 ring-white dark:ring-[#0a0a0c]" />
+
+                {/* Content */}
+                <div>
+                  {/* Top row: Title, Dates */}
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-1">
+                    <span className="font-bold text-zinc-900 dark:text-white text-sm sm:text-base group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {exp.title}
+                    </span>
+                    <span className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm">
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  {/* Subtitle row: Company · Short single-sentence description */}
+                  <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <span className="text-zinc-800 dark:text-zinc-300 font-medium">{exp.company}</span>
+                    <span className="text-zinc-400 dark:text-zinc-500 mx-1.5">·</span>
+                    <span>{exp.desc}</span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Featured Projects */}
+        <section id="projects" className="space-y-6 scroll-mt-20">
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white inline-block border-b-2 border-zinc-900 dark:border-white pb-0.5">
+              Projects
+            </h2>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
+            {projects.map((proj, i) => {
+              const CardWrapper = proj.link ? 'a' : 'div'
+              const cardProps = proj.link
+                ? {
+                    href: proj.link,
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                  }
+                : {}
+
+              return (
+                <CardWrapper
+                  key={i}
+                  {...cardProps}
+                  className={`group p-5 sm:p-6 rounded-xl border border-zinc-200 dark:border-zinc-800/80 bg-zinc-50/50 dark:bg-zinc-900/30 hover:border-zinc-400 dark:hover:border-zinc-600 transition-all flex flex-col justify-between space-y-4 ${
+                    proj.link ? 'cursor-pointer hover:shadow-lg' : ''
+                  }`}
+                >
+                  <div className="space-y-4">
+                    {proj.image && (
+                      <div className={`w-full h-48 sm:h-52 overflow-hidden rounded-lg flex items-center justify-center border border-zinc-200/60 dark:border-zinc-800/60 ${proj.imageBg || 'bg-zinc-100 dark:bg-zinc-950/60'}`}>
+                        <img
+                          src={proj.image}
+                          alt={proj.title}
+                          className={`w-full h-full ${proj.imageFit || 'object-contain'} group-hover:scale-105 transition-transform duration-300`}
+                        />
+                      </div>
+                    )}
+
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold text-zinc-900 dark:text-white flex items-center justify-between">
+                        <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {proj.title}
+                        </span>
+                        {proj.link && (
+                          <span className="text-xs text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-normal">
+                            ↗
+                          </span>
+                        )}
+                      </h3>
+
+                      <p className="text-sm sm:text-base text-zinc-800 dark:text-zinc-100 font-medium leading-relaxed pt-0.5">
+                        {proj.desc}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {proj.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-xs font-semibold px-2.5 py-1 rounded-md border border-zinc-800 dark:border-white text-zinc-900 dark:text-white bg-transparent"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </CardWrapper>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Minimal Footer */}
+        <footer className="pt-8 border-t border-zinc-200 dark:border-zinc-900 text-xs text-zinc-500 dark:text-zinc-600 text-center">
+          <span>© 2026 Alexander Lap. All rights reserved.</span>
+        </footer>
+
+      </main>
     </div>
   )
 }

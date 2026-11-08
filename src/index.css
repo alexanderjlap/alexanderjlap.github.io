@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
-body {
-  @apply bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white;
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
 }
 
-a {
-  @apply font-medium text-blue-400 transition-colors hover:text-blue-300;
+body {
+  @apply bg-white text-zinc-900 dark:bg-[#0a0a0c] dark:text-zinc-100 antialiased selection:bg-blue-500/20 selection:text-blue-500 dark:selection:text-blue-300;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
