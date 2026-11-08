@@ -3,6 +3,7 @@ import avatarImg from './assets/avatar.jpg'
 import panAsianImg from './assets/pan-asian.jpg'
 import saseImg from './assets/sase-app.jpg'
 import easeImg from './assets/ease-wellness.png'
+import brighamImg from './assets/brigham-kiosk.jpg'
 
 function App() {
   const projects = [
@@ -22,7 +23,10 @@ function App() {
       title: "Brigham and Women's Hospital Kiosk",
       tags: ['TypeScript', 'Node.js', 'PostgreSQL', 'Docker', 'AWS', 'Auth0'],
       desc: '🏥 Full-stack medical equipment tracking web app with A* pathfinding and AWS deployment',
-      link: 'https://github.com/alexanderjlap',
+      image: brighamImg,
+      imageFit: 'object-cover object-top',
+      imageBg: 'bg-white dark:bg-zinc-950',
+      link: 'https://github.com/alexanderjlap/CS3733-D24-Team-C-Production',
     },
     {
       title: 'EASE Wellness Planner',
