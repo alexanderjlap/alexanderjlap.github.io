@@ -287,19 +287,13 @@ function App() {
           </h2>
 
           <div className="space-y-3">
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between text-sm">
-              <div>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
-                <p className="text-zinc-600 dark:text-zinc-400 text-xs">M.S. in Cybersecurity · Dec 2026</p>
-              </div>
-              <span className="text-xs text-zinc-500">Worcester, MA</span>
+            <div className="text-sm">
+              <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
+              <p className="text-zinc-600 dark:text-zinc-400 text-xs">M.S. in Cybersecurity · Dec 2026</p>
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between text-sm">
-              <div>
-                <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
-                <p className="text-zinc-600 dark:text-zinc-400 text-xs">B.S. in Computer Science · May 2026</p>
-              </div>
-              <span className="text-xs text-zinc-500">Worcester, MA</span>
+            <div className="text-sm">
+              <span className="font-semibold text-zinc-900 dark:text-zinc-200">Worcester Polytechnic Institute</span>
+              <p className="text-zinc-600 dark:text-zinc-400 text-xs">B.S. in Computer Science · May 2026</p>
             </div>
           </div>
         </section>
